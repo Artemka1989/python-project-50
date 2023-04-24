@@ -9,7 +9,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument('first_file', type=str)
 parser.add_argument('second_file', type=str)
 
-# OPtional arguments
+# Otional arguments
 parser.add_argument('-f', '--format', type=str, help='set format of output',
                     default='gen')
 args = parser.parse_args()
@@ -31,13 +31,8 @@ def generate_diff(first_file, second_file):
             result.append(f'  +{key2}: {value2}')
     result.append('}')
     res_str = '\n'.join(result)
-    print(res_str)
     return res_str
 
 
 if args.format == 'gen':
     generate_diff(args.first_file, args.second_file)
-
-
-if __name__ == '__main__':
-    generate_diff(file1, file2)
